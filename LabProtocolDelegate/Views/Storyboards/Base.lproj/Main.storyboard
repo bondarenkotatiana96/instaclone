@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4o1-Mm-sWy">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Photo Collection View Controller-->
+        <scene sceneID="hCR-jV-Tet">
+            <objects>
+                <collectionViewController id="y9L-dc-HRO" customClass="PhotoCollectionViewController" customModule="LabProtocolDelegate" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Fii-aY-oMc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="o78-pQ-I5W">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photoCell" id="AL8-zc-BXf" customClass="PhotoCollectionViewCell" customModule="LabProtocolDelegate" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Yg2-3d-OFl">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nmp-qj-wB9">
+                                            <rect key="frame" x="20" y="5" width="88" height="93"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mz-dL-gGX">
+                                            <rect key="frame" x="43" y="103" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="nmp-qj-wB9" secondAttribute="bottom" constant="30" id="0hQ-8I-5s9"/>
+                                        <constraint firstItem="9Mz-dL-gGX" firstAttribute="centerX" secondItem="Yg2-3d-OFl" secondAttribute="centerX" id="75M-d0-e0S"/>
+                                        <constraint firstItem="9Mz-dL-gGX" firstAttribute="top" secondItem="nmp-qj-wB9" secondAttribute="bottom" constant="5" id="ZTS-i9-0mY"/>
+                                        <constraint firstItem="nmp-qj-wB9" firstAttribute="top" secondItem="Yg2-3d-OFl" secondAttribute="top" constant="5" id="uDF-l8-zoO"/>
+                                        <constraint firstAttribute="trailing" secondItem="nmp-qj-wB9" secondAttribute="trailing" constant="20" id="ueO-P4-KDw"/>
+                                        <constraint firstItem="nmp-qj-wB9" firstAttribute="leading" secondItem="Yg2-3d-OFl" secondAttribute="leading" constant="20" id="ybh-7a-3u5"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="photoCaptionLabel" destination="9Mz-dL-gGX" id="MdI-C6-d6N"/>
+                                    <outlet property="photoImageView" destination="nmp-qj-wB9" id="YPD-DD-YEX"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="y9L-dc-HRO" id="557-0Q-mtG"/>
+                            <outlet property="delegate" destination="y9L-dc-HRO" id="vDn-dO-8Nr"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="Lz6-uY-Mhz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kec-p6-s9n">
+                            <connections>
+                                <segue destination="vpo-cm-LcO" kind="show" identifier="toCreatePostView" id="XyZ-GT-Jnq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ne7-sg-v45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327.536231884058" y="92.410714285714278"/>
+        </scene>
+        <!--Create a post-->
+        <scene sceneID="cYP-7h-SUn">
+            <objects>
+                <viewController id="vpo-cm-LcO" customClass="CreatePostViewController" customModule="LabProtocolDelegate" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AXR-h3-dIb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nbq-ft-TfA">
+                                <rect key="frame" x="139" y="138" width="136" height="31"/>
+                                <color key="tintColor" systemColor="systemIndigoColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="square.and.arrow.up" catalog="system" title=" Upload photo"/>
+                                <connections>
+                                    <action selector="uploadPhotoButtonTapped:" destination="vpo-cm-LcO" eventType="touchUpInside" id="bgb-pG-bDw"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Enter caption..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hq2-fa-lNt">
+                                <rect key="frame" x="41.5" y="199" width="331" height="309.5"/>
+                                <color key="backgroundColor" systemColor="systemFillColor"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e5J-sw-FZf">
+                                <rect key="frame" x="87" y="600" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iUC-lN-Z6h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nbq-ft-TfA" firstAttribute="centerX" secondItem="iUC-lN-Z6h" secondAttribute="centerX" id="SGv-zg-Gpp"/>
+                            <constraint firstItem="hq2-fa-lNt" firstAttribute="centerX" secondItem="Nbq-ft-TfA" secondAttribute="centerX" id="kRN-rt-x61"/>
+                            <constraint firstItem="Nbq-ft-TfA" firstAttribute="top" secondItem="iUC-lN-Z6h" secondAttribute="top" constant="50" id="kf6-gr-RmN"/>
+                            <constraint firstItem="hq2-fa-lNt" firstAttribute="width" secondItem="iUC-lN-Z6h" secondAttribute="width" multiplier="0.8" id="rzT-I0-osg"/>
+                            <constraint firstItem="hq2-fa-lNt" firstAttribute="top" secondItem="Nbq-ft-TfA" secondAttribute="bottom" constant="30" id="wI6-E9-prU"/>
+                            <constraint firstItem="hq2-fa-lNt" firstAttribute="height" secondItem="iUC-lN-Z6h" secondAttribute="height" multiplier="0.4" id="wlp-pD-QVs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create a post" id="ARF-qa-hN1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Pg3-N9-dep">
+                            <connections>
+                                <action selector="createPostButtonTapped:" destination="vpo-cm-LcO" id="Dd7-XJ-2vt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="myPhotoView" destination="e5J-sw-FZf" id="pOO-fC-0gd"/>
+                        <outlet property="photoCaptionTextField" destination="hq2-fa-lNt" id="RAn-26-pmL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lgf-8v-dGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2170" y="92"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rqj-fA-yAS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4o1-Mm-sWy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="VIT-2v-fNM">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="y9L-dc-HRO" kind="relationship" relationship="rootViewController" id="ygv-5v-NZQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Afy-aS-iyy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="417.39130434782612" y="92.410714285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemFillColor">
+            <color red="0.47058823529411764" green="0.47058823529411764" blue="0.50196078431372548" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
